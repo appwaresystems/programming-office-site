@@ -40,22 +40,22 @@ export default function Footer() {
                         <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="#services" className="text-slate-300 hover:text-cyan-400 transition-colors">
+                                <Link href="/services" className="text-slate-300 hover:text-cyan-400 transition-colors">
                                     Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#portfolio" className="text-slate-300 hover:text-cyan-400 transition-colors">
+                                <Link href="/portfolio" className="text-slate-300 hover:text-cyan-400 transition-colors">
                                     Portfolio
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#careers" className="text-slate-300 hover:text-cyan-400 transition-colors">
+                                <Link href="/careers" className="text-slate-300 hover:text-cyan-400 transition-colors">
                                     Careers
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#contact" className="text-slate-300 hover:text-cyan-400 transition-colors">
+                                <Link href="/contact" className="text-slate-300 hover:text-cyan-400 transition-colors">
                                     Contact
                                 </Link>
                             </li>
@@ -66,10 +66,11 @@ export default function Footer() {
                     <div>
                         <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
                         <ul className="space-y-2 text-slate-300">
-                            <li>123 Business Ave</li>
-                            <li>San Francisco, CA 94107</li>
-                            <li>info@appwaresystems.com</li>
-                            <li>+1 (555) 123-4567</li>
+                            {/*<li>123 Business Ave</li>*/}
+                            {/*<li>San Francisco, CA 94107</li>*/}
+                            <li>appwaresystemsco@gmail.com</li>
+                            <li>+37498032071</li>
+                            <li>+37499114787</li>
                         </ul>
                     </div>
                 </div>

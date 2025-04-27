@@ -1,8 +1,20 @@
+'use client'
+
 // components/Hero.tsx
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ConsultationModal from './ConsultationModal';  // Импортируем модалку
 
 export default function Hero() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // Открытие модалки
+    const openModal = () => setIsModalOpen(true);
+
+    // Закрытие модалки
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-indigo-900 text-white min-h-screen flex items-center">
             <div className="absolute inset-0 opacity-20">
@@ -28,12 +40,12 @@ export default function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                            <Link
-                                href="/contact"
+                            <button
+                                onClick={openModal} // Открываем модалку по клику
                                 className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg transition-all hover:shadow-xl hover:scale-[1.02] text-center shadow-lg shadow-blue-500/20"
                             >
                                 Schedule Your Free Consultation
-                            </Link>
+                            </button>
                             <Link
                                 href="/portfolio"
                                 className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-lg transition-all hover:bg-white/10 hover:shadow-lg hover:scale-[1.02] text-center backdrop-blur-sm"
@@ -41,8 +53,6 @@ export default function Hero() {
                                 Explore Our Portfolio
                             </Link>
                         </div>
-
-
                     </div>
 
                     <div className="lg:w-1/2 relative">
@@ -61,6 +71,9 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
+
+            {/* Модалка будет показываться, если isModalOpen равно true */}
+            <ConsultationModal isOpen={isModalOpen} onClose={closeModal} />
         </section>
     );
 }

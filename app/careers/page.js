@@ -358,23 +358,6 @@ export default function CareersPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-cyan-600 to-blue-600 text-white">
-                <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-4xl font-bold mb-6">Ready to Join Our Team?</h2>
-                    <p className="text-xl max-w-3xl mx-auto mb-8">
-                        We're always looking for talented individuals to join our growing team.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
-                            View All Positions
-                        </button>
-                        <button className="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-cyan-600 transition-colors shadow-lg">
-                            Contact Recruiter
-                        </button>
-                    </div>
-                </div>
-            </section>
         </main>
     );
 }

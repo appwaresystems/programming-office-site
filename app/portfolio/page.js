@@ -255,9 +255,6 @@ export default function PortfolioPage() {
                         <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
                             Request Consultation
                         </button>
-                        <button className="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-cyan-600 transition-colors shadow-lg">
-                            View Case Studies
-                        </button>
                     </div>
                 </div>
             </section>

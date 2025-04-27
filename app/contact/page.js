@@ -99,17 +99,17 @@ export default function ContactPage() {
                             </h2>
 
                             <div className="space-y-8">
-                                <div className="flex items-start">
-                                    <div className="flex-shrink-0 mr-6 mt-1">
-                                        <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center">
-                                            <FaMapMarkerAlt className="text-cyan-600 text-xl" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-slate-900 mb-2">Location</h3>
-                                        <p className="text-slate-600">123 Tech Street<br />San Francisco, CA 94107</p>
-                                    </div>
-                                </div>
+                                {/*<div className="flex items-start">*/}
+                                {/*    <div className="flex-shrink-0 mr-6 mt-1">*/}
+                                {/*        <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center">*/}
+                                {/*            <FaMapMarkerAlt className="text-cyan-600 text-xl" />*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <div>*/}
+                                {/*        <h3 className="text-xl font-bold text-slate-900 mb-2">Location</h3>*/}
+                                {/*        <p className="text-slate-600">123 Tech Street<br />San Francisco, CA 94107</p>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
 
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0 mr-6 mt-1">
@@ -119,7 +119,9 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">Phone</h3>
-                                        <p className="text-slate-600">+1 (555) 123-4567</p>
+                                        <p className="text-slate-600">+374 (98) 03-20-71</p>
+                                        <p className="text-slate-600">+374 (99) 11-47-87</p>
+
                                     </div>
                                 </div>
 
@@ -131,7 +133,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                                        <p className="text-slate-600">contact@appwaresystems.com</p>
+                                        <p className="text-slate-600">appwaresystemsco@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -247,9 +249,6 @@ export default function ContactPage() {
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
                             Request Consultation
-                        </button>
-                        <button className="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-cyan-600 transition-colors shadow-lg">
-                            Call Us Now
                         </button>
                     </div>
                 </div>
