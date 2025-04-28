@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarAlt, FaClock, FaTimes } from 'react-icons/fa';
@@ -24,6 +24,12 @@ export default function ConsultationModal({ isOpen, onClose }) {
         setSelectedTime('');
         setName('');
         setEmail('');
+        setSubmitStatus(null);
+    };
+
+    const handleClose = () => {
+        resetForm();
+        onClose();
     };
 
     const handleSubmit = async (e) => {
@@ -73,7 +79,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                 <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-xl p-8">
                     <button
-                        onClick={onClose}
+                        onClick={handleClose}
                         className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
                         aria-label="Close"
                     >
@@ -107,7 +113,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                                className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-black"
                             />
                         </div>
 
@@ -121,7 +127,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                                className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-black"
                             />
                         </div>
 
@@ -135,7 +141,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                                     onChange={(date) => setSelectedDate(date)}
                                     minDate={new Date()}
                                     filterDate={(date) => date.getDay() !== 0 && date.getDay() !== 6}
-                                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 pl-10"
+                                    className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 pl-10 text-black"
                                     placeholderText="Select a date"
                                     required
                                 />
@@ -152,7 +158,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                                     <select
                                         value={selectedTime}
                                         onChange={(e) => setSelectedTime(e.target.value)}
-                                        className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 pl-10 appearance-none"
+                                        className="w-full px-4 py-3 border border-black rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 pl-10 appearance-none text-black"
                                         required
                                     >
                                         <option value="">Select a time</option>

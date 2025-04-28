@@ -4,16 +4,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ConsultationModal from './ConsultationModal';  // Импортируем модалку
+import ConsultationModal from './ConsultationModal';
 
 export default function Hero() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для модалки
 
-    // Открытие модалки
-    const openModal = () => setIsModalOpen(true);
-
-    // Закрытие модалки
-    const closeModal = () => setIsModalOpen(false);
 
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-indigo-900 text-white min-h-screen flex items-center">
@@ -41,7 +36,7 @@ export default function Hero() {
 
                         <div className="flex flex-col sm:flex-row gap-4 mb-12">
                             <button
-                                onClick={openModal} // Открываем модалку по клику
+                                onClick={() => setIsModalOpen(true)}
                                 className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg transition-all hover:shadow-xl hover:scale-[1.02] text-center shadow-lg shadow-blue-500/20"
                             >
                                 Schedule Your Free Consultation
@@ -72,8 +67,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Модалка будет показываться, если isModalOpen равно true */}
-            <ConsultationModal isOpen={isModalOpen} onClose={closeModal} />
+            <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
     );
 }

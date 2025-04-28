@@ -1,7 +1,15 @@
+'use client';
+
 // app/services/page.js
 import { FaShieldAlt, FaChartLine, FaLightbulb, FaHandshake, FaHeadset } from 'react-icons/fa';
+import {useState} from "react";
+import ConsultationModal from "@/app/components/ConsultationModal";
 
 export default function ServicesPage() {
+
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const services = [
         {
             title: "Custom Software Development",
@@ -109,6 +117,9 @@ export default function ServicesPage() {
             bestFor: "Large enterprises with mission-critical systems"
         }
     ];
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <main className="pt-16">
@@ -282,20 +293,23 @@ export default function ServicesPage() {
             {/* CTA Section */}
             <section className="py-24 bg-gradient-to-br from-cyan-600 to-blue-600 text-white">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-4xl font-bold mb-6">Ready to Build or Optimize Your IT Products?</h2>
+                    <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
                     <p className="text-xl max-w-3xl mx-auto mb-8">
-                        Our team of experts is ready to discuss your project requirements and support needs.
+                        Let's discuss how we can bring your vision to life with our expertise.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
+                        <button
+                            onClick={openModal}
+                            className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
+                        >
                             Request Consultation
-                        </button>
-                        <button className="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-cyan-600 transition-colors shadow-lg">
-                            Contact Support
                         </button>
                     </div>
                 </div>
             </section>
+
+            {/* Consultation Modal */}
+            <ConsultationModal isOpen={isModalOpen} onClose={closeModal} />
         </main>
     );
 }

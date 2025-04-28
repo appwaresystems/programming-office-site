@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FaPaperPlane, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import ConsultationModal from "@/app/components/ConsultationModal";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -15,6 +16,9 @@ export default function ContactPage() {
     const [userCaptchaInput, setUserCaptchaInput] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
+
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         generateCaptcha();
@@ -69,6 +73,9 @@ export default function ContactPage() {
             setIsSubmitting(false);
         }
     };
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <main className="pt-16">
@@ -244,15 +251,21 @@ export default function ContactPage() {
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
                     <p className="text-xl max-w-3xl mx-auto mb-8">
-                        Our team is ready to discuss your requirements and provide the best solution.
+                        Let's discuss how we can bring your vision to life with our expertise.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg">
+                        <button
+                            onClick={openModal}
+                            className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
+                        >
                             Request Consultation
                         </button>
                     </div>
                 </div>
             </section>
+
+            {/* Consultation Modal */}
+            <ConsultationModal isOpen={isModalOpen} onClose={closeModal} />
         </main>
     );
 }

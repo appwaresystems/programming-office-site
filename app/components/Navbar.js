@@ -3,12 +3,12 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import ConsultationModal from './ConsultationModal'; // Импортируем модалку
+import ConsultationModal from './ConsultationModal';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Состояние для модалки
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -89,7 +89,7 @@ export default function Navbar() {
                                 }}
                                 className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all text-center mt-2"
                             >
-                                Get Started
+                                Get Free Consultation
                             </button>
                         </div>
                     </div>
