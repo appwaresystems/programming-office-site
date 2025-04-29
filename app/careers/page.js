@@ -1,8 +1,15 @@
 // app/careers/page.js
+'use client';
+
+import { useState } from 'react';
 import { FaJava, FaReact, FaServer, FaCodeBranch, FaUserTie } from 'react-icons/fa';
 import { SiSpringboot, SiJavascript, SiTypescript, SiAmazon } from 'react-icons/si';
+import ApplicationModal from '../components/ApplicationModal';
 
 export default function CareersPage() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedPosition, setSelectedPosition] = useState('');
+
     const positions = [
         {
             title: "Senior Java Backend Engineer",
@@ -123,6 +130,11 @@ export default function CareersPage() {
         }
     ];
 
+    const handleApplyClick = (positionTitle) => {
+        setSelectedPosition(positionTitle);
+        setIsModalOpen(true);
+    };
+
     return (
         <main className="pt-16">
             {/* Hero Section */}
@@ -233,7 +245,10 @@ export default function CareersPage() {
                                     </div>
                                 </div>
 
-                                <button className="w-full mt-6 py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium hover:shadow-lg transition-all">
+                                <button
+                                    onClick={() => handleApplyClick(position.title)}
+                                    className="w-full mt-6 py-3 px-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg transition-all"
+                                >
                                     Apply Now
                                 </button>
                             </div>
@@ -358,6 +373,12 @@ export default function CareersPage() {
                 </div>
             </section>
 
+            {/* Application Modal */}
+            <ApplicationModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                positionTitle={selectedPosition}
+            />
         </main>
     );
 }
